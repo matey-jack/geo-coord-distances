@@ -4,7 +4,13 @@ import scala.math.sqrt
 import Point._
 
 case class Point(lat : Double, long: Double, name: String, ort: String) {
-  def dist(p: Point) : Double = sqrt(sq(lat-p.lat) + sq(long-p.long))
+  val ONE_LATTITUDE_IN_KM = 111
+  val ONE_LONGITUDE_AT_52_5_IN_KM = 67.7
+  def dist(p: Point) : Double = {
+    sqrt(sq((lat - p.lat) * ONE_LATTITUDE_IN_KM) 
+      + sq((long - p.long) * ONE_LONGITUDE_AT_52_5_IN_KM)
+    )
+  }
 }
 
 object Point {
@@ -21,29 +27,19 @@ object Point {
     Point(52.556017, 13.212899, "Maselakepark", "Hakenfelde")
   )
   def main(args : Array[String]): Unit = {
-    println("Ring: " + middle.dist(ring).toString)
+    println(f"${middle.dist(ring)}%6.2f - Ring")
     for (p : Point <- reforms) {
-      println(p.name + ", " + p.ort + ": " + middle.dist(p).toString)
+      println(f"${middle.dist(p)}%6.2f - ${p.name}, ${p.ort}")
     }
   }
   
   """
-    |Ring: 0.08494928021472359
-    |Ende Waldowallee, Karlshorst: 0.15426119935032148
-    |Ende Frauenlobstraße, Baumschulenweg: 0.11650982798888351
-    |Pastor-Niemöller-Platz, NSH: 0.059964459782443004
-    |Fußballfeld, Borsigwalde: 0.10694591474198578
-    |Kirche, Lankwitz: 0.09432061201031235
-    |Maselakepark, Hakenfelde: 0.17819801487390405
-  """.stripMargin
-
-  "payload.realEstateTypeSpecificData.serviceCharge"
-  
-  """
-    |payload.realEstateTypeSpecificData.rentSubsidy	35348	10.501735	null: 25498 double: 1167 integer: 8683
-    |payload.realEstateTypeSpecificData.rentalIncome	165474	49.161594	null: 161410 double: 996 integer: 3068
-    |payload.realEstateTypeSpecificData.rentalIncomeActual	3988	1.1848172	null: 1691 double: 386 integer: 1911
-    |payload.realEstateTypeSpecificData.rentalIncomeTarget	3988	1.1848172	null: 2105 double: 174 integer: 1709
-    |
-  """.stripMargin
+    |  6.76 - Ring
+    | 11.11 - Ende Waldowallee, Karlshorst
+    |  9.46 - Ende Frauenlobstraße, Baumschulenweg
+    |  6.59 - Pastor-Niemöller-Platz, NSH
+    |  9.21 - Fußballfeld, Borsigwalde
+    |  9.80 - Kirche, Lankwitz
+    | 12.46 - Maselakepark, Hakenfelde
+    |""".stripMargin
 }
