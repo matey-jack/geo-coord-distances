@@ -16,9 +16,14 @@ case class Point(lat : Double, long: Double, name: String, ort: String) {
 object Point {
   def sq(x : Double) : Double = x*x
   
-  val middle = Point(52.520689, 13.387560, "Weidendammer Brücke", "Mitte")
-  val ring = Point(52.480386, 13.312780, "Heidelberger Platz", "Wilmersdorf")
+  val centres = Seq(
+    // Point(52.520689, 13.387560, "Weidendammer Brücke", "Mitte"),
+    Point(52.5043971, 13.3315912, "Kurfürstendamm 1", "Zoo"),
+    Point(52.5111799, 13.3859783, "U Stadtmitte", "Friedrich-/Mohrenstraße"),
+    Point(52.5210752, 13.4133312, "Weltzeituhr", "Alexanderplatz")
+  )
   val reforms = Seq(
+    Point(52.480386, 13.312780, "Heidelberger Platz", "Wilmersdorf"),
     Point(52.477734, 13.535720, "Ende Waldowallee", "Karlshorst"),
     Point(52.461266, 13.487777, "Ende Frauenlobstraße", "Baumschulenweg"),
     Point(52.579690, 13.398266, "Pastor-Niemöller-Platz", "NSH"),
@@ -27,10 +32,13 @@ object Point {
     Point(52.556017, 13.212899, "Maselakepark", "Hakenfelde")
   )
   def main(args : Array[String]): Unit = {
-    println(f"${middle.dist(ring)}%6.2f - Ring")
-    for (p : Point <- reforms) {
-      println(f"${middle.dist(p)}%6.2f - ${p.name}, ${p.ort}")
-    }
+    for (c : Point <- centres) {
+      println(f"Distances from ${c.name}, ${c.ort}")
+      for (p : Point <- reforms) {
+        println(f"${c.dist(p)}%6.2f - ${p.name}, ${p.ort}")
+      }
+      println()
+    }  
   }
   
   """
