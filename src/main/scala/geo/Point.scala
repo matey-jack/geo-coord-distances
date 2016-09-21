@@ -42,12 +42,31 @@ object Point {
   }
   
   """
-    |  6.76 - Ring
-    | 11.11 - Ende Waldowallee, Karlshorst
-    |  9.46 - Ende Frauenlobstraße, Baumschulenweg
+    |Distances from Kurfürstendamm 1, Zoo
+    |  2.95 - Heidelberger Platz, Wilmersdorf
+    | 14.13 - Ende Waldowallee, Karlshorst
+    | 11.61 - Ende Frauenlobstraße, Baumschulenweg
+    |  9.50 - Pastor-Niemöller-Platz, NSH
+    |  9.20 - Fußballfeld, Borsigwalde
+    |  7.64 - Kirche, Lankwitz
+    |  9.87 - Maselakepark, Hakenfelde
+    |
+    |Distances from U Stadtmitte, Friedrich-/Mohrenstraße
+    |  6.02 - Heidelberger Platz, Wilmersdorf
+    | 10.80 - Ende Waldowallee, Karlshorst
+    |  8.84 - Ende Frauenlobstraße, Baumschulenweg
+    |  7.65 - Pastor-Niemöller-Platz, NSH
+    |  9.99 - Fußballfeld, Borsigwalde
+    |  8.76 - Kirche, Lankwitz
+    | 12.73 - Maselakepark, Hakenfelde
+    |
+    |Distances from Weltzeituhr, Alexanderplatz
+    |  8.17 - Heidelberger Platz, Wilmersdorf
+    |  9.58 - Ende Waldowallee, Karlshorst
+    |  8.34 - Ende Frauenlobstraße, Baumschulenweg
     |  6.59 - Pastor-Niemöller-Platz, NSH
-    |  9.21 - Fußballfeld, Borsigwalde
-    |  9.80 - Kirche, Lankwitz
-    | 12.46 - Maselakepark, Hakenfelde
+    | 10.36 - Fußballfeld, Borsigwalde
+    | 10.48 - Kirche, Lankwitz
+    | 14.11 - Maselakepark, Hakenfelde
     |""".stripMargin
 }
